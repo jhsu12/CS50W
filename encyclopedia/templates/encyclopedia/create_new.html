@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New
+{% endblock %}
+
+{% block body %}
+    
+    <h1>Create New Wiki</h1>
+    {% if error %}
+        <h2 style="color: crimson;">{{title}} already exists!</h2>
+    {% endif %}
+    <form  action="{% url 'encyclopedia:create' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Save">
+    </form>
+
+{% endblock %}

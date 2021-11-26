@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Advanced Search</title>
+        <link rel="stylesheet" href="search.css">
+    </head>
+    <body>
+        
+        <div id = "grid">
+            <div class="grid-item1">
+                <img class="label" src="google.png" alt="Google" width="80" height="30" >
+            </div>
+            <div class="grid-item">
+                <a href="index.html" target="_top">Homepage</a>
+            </div>
+            <div class="grid-item">
+                <a href="image.html" target="_top">Images</a>
+            </div>
+            
+        </div>
+        <div class="appbar"> 
+            <label style="margin-left:10px">Advanced Search</label>    
+        </div>
+        <div class="line"></div>
+        <div class="find_page">
+            <span>Find pages with...</span>
+        </div>
+        <form action="https://google.com/search">
+            <div class="box">
+                <div class="heading">
+                    <div class="text">
+                        <label>all these words:</label>
+                    </div>
+                    <div class="search_bar">
+                        <input class="text_input" type="text" name="as_q" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="heading">
+                    <div class="text">
+                        <label>this exact word or phrase:</label>
+                    </div>
+                    <div class="search_bar">
+                        <input class="text_input" type="text" name="as_epq" autocomplete="off">
+                    </div>
+                </div>
+
+                <div class="heading">
+                    <div class="text">
+                        <label>any of these words:</label>
+                    </div>
+                    <div class="search_bar">
+                        <input class="text_input" type="text" name="as_oq" autocomplete="off">
+                    </div>
+                </div>
+                <div class="heading">
+                    <div class="text">
+                        <label>none of these words:</label>
+                    </div>
+                    <div class="search_bar">
+                        <input class="text_input" type="text" name="as_eq" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <div class="line1"></div>
+            <div class="submit">
+                <input class="button" type="submit" value="Advanced Search">
+            </div>
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+a:link 
+{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover 
+{
+    text-decoration: underline;
+}
+a:visited 
+{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+#grid
+{
+    margin-left: 85%;
+    display: grid;
+    padding: 10px;
+    grid-column-gap: 10px;
+    grid-template-columns: 70px 200px
+}
+
+.grid-item
+{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 1px;
+    text-align: center;
+}
+
+.label
+{   
+    display: block;
+    margin: auto;
+    align-items: center bottom;
+    margin-top: 150px;
+}
+.vertical-center
+{
+    margin-top: 40px;
+}
+.bar 
+{
+    color: black;
+    flex: 100%;
+    white-space: pre;
+    height: 34px;
+    width: 500px;
+    border: transparent;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-top: 5px;
+    
+}
+.RNNXgb
+{
+    background: white;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    z-index: 3;
+    height: 44px;
+    margin: 0 auto;
+    width: auto;
+    max-width: 600px;
+}
+input:focus 
+{
+    outline: none !important;
+}
+.mag
+{
+    padding: 12px;
+}
+.blue_mag
+{
+    padding: 10px;
+}
+
+#Search:hover, #Lucky:hover
+{
+    border: 1px solid rgb(211, 206, 206);
+}
+.RNNXgb:hover
+{
+    border: 1px solid rgb(199, 196, 196);
+}

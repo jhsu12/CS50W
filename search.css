@@ -1,0 +1,151 @@
+a:link 
+{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover 
+{
+    text-decoration: underline;
+}
+a:visited 
+{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+}
+#grid
+{
+    margin-left: 0%;
+    display: grid;
+    padding: 10px;
+    grid-column-gap: 10px ;
+    grid-template-columns: 1600px 150px 90px
+}
+.grid-item
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 1px;
+    text-align: center;
+}
+.grid-item1
+{
+    text-align: left;
+}
+.label
+{   
+    padding-left: 10px;
+}
+.appbar 
+{
+    color: #d93025;
+    font-size: 22px;
+    margin: 25px 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 40px;
+}
+.line
+{
+    border-bottom: 1px solid #ebebeb;
+}
+.find_page
+{
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    display: inline-block;
+    min-width: 167px;
+    width: 16%;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 42px;
+    font-weight: 500;
+    color: #333;
+    vertical-align: middle;
+    margin-top: 50px;
+    margin-left: 35px;
+}
+.box
+{
+    width: 100%;
+    clear: both;
+}
+.heading
+{
+    clear: both;
+}
+.text
+{
+    height: 30px;
+    display: table-cell;
+    vertical-align: middle;
+    margin-left: 35px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    width: 190px;
+    height: 42px;
+    color: #222;
+    font-size: 15px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.search_bar
+{
+    display: inline-block;
+    min-width: 167px;
+    min-height: 41px;
+    vertical-align: middle;
+    
+    
+}
+.line1
+{
+    border-bottom: 1px solid #ebebeb;
+    margin-top: 20px;
+}
+.text_input
+{
+    border-radius: 1px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    height: 30px;
+    width: 650px;
+    margin-left: 0px;
+    padding-left: 10px;
+}
+.button
+{
+    box-shadow: none;
+    background-color: #4d90fe;
+    border: 1px solid #3079ed;
+    color: #fff;
+    border-radius: 2px;
+    cursor: default;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    text-align: center;
+    width: 130px;
+    height: 35px;
+
+}
+.button:hover
+{
+    background-color: #4787ed;
+}
+.submit
+{
+    margin-top: 20px;
+    margin-left: 755px;
+}
+
+
+
+
+

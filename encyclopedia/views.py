@@ -75,13 +75,7 @@ def Create(request):
             
             #if not then create new one and redirect to new page
             util.save_entry(title, content)
-            md = util.get_entry(title)
-            return render(request, "encyclopedia/entry.html", {
-                "title": title,
-                "new": True,
-                "title": title,
-                "markdown": Markdown().convert(md)
-            })
+            return redirect('encyclopedia:title', title= title)
     #if request.method is GET    
     return render(request, "encyclopedia/create_new.html", {
         "form": NewPageForm(),
@@ -107,12 +101,7 @@ def Edit(request):
             edit_content = form.cleaned_data["content"]
 
             util.save_entry(edit_title, edit_content)
-            md = util.get_entry(edit_title)
-            return render(request, "encyclopedia/entry.html", {
-                "title": edit_title,
-                "new": False,
-                "markdown": Markdown().convert(md)
-            })
+            return redirect('encyclopedia:title', title= edit_title)
 
 def Random(request):
     entries = util.list_entries()

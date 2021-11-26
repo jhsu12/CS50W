@@ -1,0 +1,59 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>WatchList Listings</h2>
+    
+    <div class="container-fluid">
+       
+        <div class="row row-cols-auto">
+            {% for auction in auctions %}
+                
+                <div class="col">
+                    <div class="card" style="width: 15rem; height: auto;">
+                        {% if auction.lists.image %}
+                            <img src={{auction.lists.image}} class="card-img-top" width="300" height= auto>
+                        {% endif %}
+                        <div class="card-body">
+                            <a class="card-title h5" href="{% url 'auc:list' auction.lists.id %}">{{auction.lists.title}}</a>
+                            {% if auction.lists.on_list %}
+                                <span class="badge badge-success">On Going</span>
+                            {% else %}
+                                <span class="badge badge-danger">Closed</span>
+                            {% endif %}
+                            <br>
+                            <br>
+                            <h6 class="card-subtitle">Seller: {{auction.lists.seller}}</h6>
+                            <br>
+                            {% if auction.lists.on_list %}
+                                {% if auction.lists.current_bid == -1 %}
+                                    <h6 class="card-subtitle">Price: ${{auction.lists.start_bid}}</h6>
+                                {% else %}
+                                    <h6 class="card-subtitle">Current Bid: ${{auction.lists.current_bid}}</h6>
+                                {% endif %}
+                            {% else %}
+                                {% if auction.lists.current_bid == -1 %}
+                                    <h6 class="card-subtitle">No Winner!</h6>
+                                {% else %}
+                                    <h6 class="card-subtitle">Winner: {{auction.lists.buyer}}</h6>
+                                {% endif %}
+                            {% endif %}
+
+                            <div style="height: 290px;  text-overflow:ellipsis; overflow:hidden; white-space:pre-line; ">
+                                <p class="card-text ">{{auction.lists.description}}</p> 
+                            </div>
+                            <p class="card-text">...</p>
+                            <div class="content">
+                                <br>
+                                <p class="block is-size-7 pt-2" style="text-align: center;">{{ auction.lists.date_posted}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+            
+    
+{% endblock %}

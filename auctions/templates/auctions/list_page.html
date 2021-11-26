@@ -1,0 +1,136 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="{{list.image}}" style="width: 350px; height: auto; object-fit: scale-down;">
+            </div>
+            <div class="col">
+                <div>
+                    <h4>{{ list.title }}</h3>
+                    <p class="text-muted">
+                        Created by <u><strong>{{ seller }}</strong></u>
+                    </p>
+                </div>
+
+                {% if list.category %}
+                    <div>
+                        <p><em>Category: {{ list.category }}</em></p>
+                    </div>
+                {% endif %}
+                
+                <div>
+                    <p>{{ list.description }}<p>
+                </div>
+                
+                
+
+                {% if not list.on_list %}
+
+                    {% if list.current_bid != -1 %}
+                        <p><em>Winner: <mark>{{ buyer }}</mark></em></p>
+                        <p><em>Final Price: <mark>{{ list.current_bid }}</mark></em></p>
+                    {% else %}
+                        <p><em><mark>No Winner!</mark></em></p>
+                        
+                    {% endif %}
+
+                    {% if buyer == "YOU" %}
+                        <div class="alert alert-success" role="alert">
+                            Congrats! YOU win the bid!
+                        </div>
+                    {% else %}
+                        <div class="alert alert-warning" role="alert">
+                            The bid is closed!
+                        </div>
+                    {% endif %}
+
+                {% else %}
+
+                    {% if list.current_bid != -1 %}
+                        <p><em>Current Buyer: <mark>{{ buyer }}</mark></em></p>
+                        <p><em>Current Price: <mark>{{ list.current_bid }}</mark></em></p>
+                    {% else %}
+                        <p><em><mark>No Buyer Yet!</mark></em></p>
+                        <p><em>Current Price: <mark>{{ list.start_bid }}</mark></em></p>
+                    {% endif %}
+
+                    {% if seller == "YOU" %}
+                        <form action="{% url 'auc:list' list.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-warning" name="action" value="Close">Close the Auction</button>
+                        </form>
+                    {% else %}
+                        {% if not valid %}
+                            <div class="alert alert-danger" role="alert">
+                                The Bid must be over the Current Price!
+                            </div>
+                        {% endif %}
+
+                        <form action="{% url 'auc:list' list.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" name="value" placeholder="Place Bid" aria-label="Place Bid" aria-describedby="basic-addon2" autocomplete="off">
+                                <div class="input-group-append">
+                                <button class="btn btn-outline-primary" type="submit" name="action" value="Bid">Place Bid</button>
+                                </div>
+                            </div>
+                        </form>
+                    {% endif %}
+
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                
+                <form action="{% url 'auc:list' list.id %}" method="POST">
+                    {% csrf_token %}
+                    {% if in_watchlist %}
+                        <button type="submit" class="btn btn-danger" name="action" value="Remove">Remove from WatchList</button> 
+                    {% else %}
+                        <button type="submit" class="btn btn-success" name="action" value="Add">Add to WatchList</button>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <br><br>
+                {% for comment in Comments %}
+                    <div class="container" style="border: solid gray 1px; border-radius: 10px;">
+                        {% if seller_name == comment.user.username %}
+                            <div class="h6" style="margin-top: 10px;  background-color: rgb(125, 219, 248); width: 50px;">
+                                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{ comment.user.username }}</p>
+                            </div>
+                        {% else %}
+                            <div class="h6" style="margin-top: 10px;">
+                                <p style="font-family: Georgia, 'Times New Roman', Times, serif;">{{ comment.user.username }}</p>
+                            </div>
+                        {% endif %}
+                        <hr style="border: 1px solid rgb(179, 173, 173);">
+                        <div>
+                            <p class="text-justify" style="font-size: 18px;">{{ comment.comment }}</p>
+                        </div>
+                        <div>
+                            <p class="font-weight-light" style="font-size: small; text-align: right;">{{ comment.date }}</p>
+                        </div>
+                    </div>
+                    <br><br>
+                {% endfor %}
+                
+                <form action="{% url 'auc:list' list.id %}" method="POST">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        <label class="h6" for="exampleFormControlTextarea1">Add Comment</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment" placeholder="Add your comments here" autocomplete="off"></textarea>
+                        <button type="submit" class="btn btn-primary" name="action" value="Comment">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock %}

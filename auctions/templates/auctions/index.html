@@ -1,0 +1,63 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    {% if log_in %}
+    <br><br>
+        <div class="container-fluid">
+            <div style="width: 250px;">
+                <p class="font-weight-bold">Sort by Category</p>
+                <div>
+                    <form action="{% url 'auc:index' %}" method="POST">
+                        {% csrf_token %}
+                        <select class="form-control" aria-labelledby="dropdownMenuButton" name="dropdown">
+                            <option value="" selected disabled>{{current_category}}</option>
+                            
+                            {% for category in Category %}
+                                <option value="{{ category.id }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                        <button class="btn btn-outline-primary" type="submit">Sort</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+            <div class="row row-cols-auto">
+                
+                {% for auction in auctions %}
+                    {% if auction.on_list %}
+                        <div class="col">
+                            <div class="card" style="width: 15rem; height: auto;">
+                                {% if auction.image %}
+                                    <img src={{auction.image}} class="card-img-top" width="300" height= auto>
+                                {% endif %}
+                                <div class="card-body">
+                                    <a class="card-title h5" href="{% url 'auc:list' auction.id %}">{{auction.title}}</a>
+                                    <br>
+                                    <br>
+                                    <h6 class="card-subtitle">Seller: {{auction.seller}}</h6>
+                                    <br>
+                                    {% if auction.current_bid == -1 %}
+                                        <h6 class="card-subtitle">Price: ${{auction.start_bid}}</h6>
+                                    {% else %}
+                                        <h6 class="card-subtitle">Current Bid: ${{auction.current_bid}}</h6>
+                                    {% endif %}
+                                    <div style="height: 290px;  text-overflow:ellipsis; overflow:hidden; white-space:pre-line; ">
+                                        <p class="card-text ">{{auction.description}}</p> 
+                                    </div>
+                                    <p class="card-text">...</p>
+                                    <div class="content">
+                                        <br>
+                                        <p class="block is-size-7 pt-2" style="text-align: center;">{{ auction.date_posted}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+                
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div>
+        <h3>New Post</h3>
+        <form action="{% url 'new_post' %}" id="compose-form" method="POST">
+            {% csrf_token %}
+            <textarea class="form-control" id="compose-content" placeholder="Content" name="content"></textarea>
+            <input type="submit" class="btn btn-primary" placeholder="Post">
+        </form>
+    </div>
+
+    <div id="all-posts">
+        {% for post in posts %}
+            <div class="container" id="{{post.id}}" style= "border: 1px solid grey; border-radius: 5px;">
+                    <div class="user col-3"> 
+                        <b> <a href="/profile/{{post.user}}" style="color: black;"> {{post.user}} </a> </b> 
+                    </div>
+
+                    <div class="content col-6" id="content_{{ post.id }}" > {{post.content}} </div>
+
+                    <span  id="like_{{ post.id }}" style="position: relative; top:60px;"> 
+                        <div class="container">
+
+                            <div class="row justify-content-start" style="column-width: 10px;">
+                              <div class="col-0.5" id="button">
+                                {% if request.user in post.liked_user.all %}
+                                    <button id="like"  data-action="unlike" data-postid= "{{ post.id }}" type="button" class="btn btn-primary btn-sm">Like</button>
+                                    <button id="unlike" style="display: none;"  data-action="like" data-postid= "{{ post.id }}" type="button" class="btn btn-light btn-sm">Like</button>
+                                {% else %}
+                                    <button id="like" style="display: none;"  data-action="unlike" data-postid= "{{ post.id }}" type="button" class="btn btn-primary btn-sm">Like</button>
+                                    <button id="unlike" data-action="like" data-postid= "{{ post.id }}" type="button" class="btn btn-light btn-sm">Like</button>
+                                {% endif %}
+                              </div>
+
+                              <div class="col-1" id="count">
+                                {% if post.liked_user.all.count != 0 %}
+                                    <p  style="color: white; background-color: #007bff; text-align: center; height:26px; width:26px;  border-radius: 13px;">
+                                            {{post.liked_user.all.count}}
+                                    </p>
+                                {% else %}
+                                    <p style="display:none; color: white; background-color: #007bff; text-align: center; height:26px; width:26px;  border-radius: 13px;">
+                                        {{post.liked_user.all.count}}
+                                    </p>
+                                {% endif %}
+                              </div>
+
+                            </div>
+                        </div>
+                    </span>
+                    
+                    <span style="position:relative; top:-50px; left:1000px;">
+                        {% if request.user == post.user %}
+                            <button id="edit_{{ post.id }}" data-action="edit" data-postid= "{{ post.id }}" type="button" class="btn btn-link">Edit</button>
+                        {% else %}
+                            <button type="button" class="btn btn-link"></button>
+                        {% endif %}
+                    </span>
+
+                   
+                    <div class="mb-3" id="edit_form_{{ post.id }}" style="display: none;">
+                        
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" autofocus></textarea>
+                        <button id="save_{{ post.id }}" type="button" class="btn btn-primary" data-action="save" data-postid= "{{ post.id }}">Save</button>
+                        <button id="cancel_{{ post.id }}" type="button" class="btn btn-secondary" data-action="cancel" data-postid= "{{ post.id }}">Cancel</button>
+                    </div>
+                    
+                    <div style="margin-left: 900px; position: relative;">
+                        <span class="text-muted"> {{post.timestamp}} </span>
+                    </div>
+            </div>
+            <br>
+        {% endfor %}
+    </div>
+
+    <br><br>
+
+    <div class="pagination justify-content-center"> 
+        
+        <nav>
+            <ul class="pagination">
+
+                {% if page.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+               {% endif %}
+
+                
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">{{ page.number }}</a>
+                </li>
+                
+
+                {% if page.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page.next_page_number }}">Next</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        
+    </div>
+    
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

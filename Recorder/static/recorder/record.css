@@ -1,0 +1,28 @@
+.on_court
+{
+    color: green;
+}
+.off_court
+{
+    color: red;
+}
+#period
+{
+    color: white;
+}
+#timer
+{
+    text-align: center;
+    top: 10%;
+    color: #fae100;
+    font-size: 65px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#score_board
+{
+    background-color: black;
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+}

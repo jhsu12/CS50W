@@ -1,0 +1,30 @@
+#navbar_custom
+{
+    background-color: #040a40;
+}
+
+.profile-head {
+    transform: translateY(5rem)
+}
+
+
+
+body {
+    
+    min-height: 100vh;
+    overflow-x: hidden
+}
+
+button
+{
+    color: cornsilk;
+    background-color: #ffbb00;
+    border: none;
+    padding: 15px 150px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 4px;
+    
+     
+    
+}

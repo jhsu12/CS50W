@@ -1,0 +1,95 @@
+{% extends "Recorder/layout.html" %}
+{% load static %}
+    {% block css %}
+        <link href="{% static 'recorder/create_players.css' %}" rel="stylesheet">
+    {% endblock %}
+{% block body %}
+    
+
+    <div class="py-5 px-10">
+        <div class="col-md-10 mx-auto " id="message">
+            
+        </div>
+        
+        
+        <div class="col-md-10 mx-auto">
+            <form>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Name</label>
+                      <input type="text" class="form-control" id="inputName" placeholder="Gianns Antetokounmpo">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label>Number</label>
+                      <input type="text" class="form-control" id="inputNumber" placeholder="34">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label >Image URL</label>
+                    <input type="text" class="form-control" id="inputImageURL" >
+                </div>
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-1 pt-0 ">Position</legend>
+                        <div class="col-sm-10">
+                            <div class="form-check">
+                                <input class="form-check-input"  type="checkbox" id="G" value="G" checked>
+                                <label class="form-check-label">
+                                G
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="F" value="F" >
+                                <label class="form-check-label" >
+                                F
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="C" value="C" >
+                                <label class="form-check-label" >
+                                C
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 pt-5">
+                        <button type="submit" id="create_button" >Create</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <br><br>
+
+        <div class="row col-md-10 mx-auto pt-5">
+            <div class="col-6" >
+                <div class="badge badge-pill badge-success" id="successfully_created">Success</div>
+                <ul id="list">
+                    
+                </ul>
+            </div>
+
+            <div class="col-6">
+                <div class="badge badge-pill badge-primary">Current Roster</div>
+                <ul>
+                    {% for player in players %}
+                        <li>#{{player.number}} {{player.name}} </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+{% endblock %}
+
+{% block script %}
+   <script src="{% static 'recorder/create_players.js' %}"></script>
+{% endblock %}

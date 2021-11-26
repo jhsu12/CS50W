@@ -1,0 +1,197 @@
+{% extends "Recorder/layout.html" %}
+{% load static %}
+    {% block css %}
+        <link href="{% static 'recorder/record.css' %}" rel="stylesheet">
+    {% endblock %}
+{% block body %}
+    
+    <div class="px-4 py-3">
+        <div class="px-4 py-3" id="score_board">
+            <div id="timer">00:00</div>
+            <div class="px-4 py-1" id="period">Period</div>
+        </div>
+        
+
+        <table class="table table-sm table-hover table-bordered table-responsive-lg">
+        <thead>
+          <tr class="table-active">
+            <th scope="col" >PLAYER</th>
+            <th scope="col" >STATUS</th>
+            <th scope="col" >MIN</th>
+            
+            
+            <th scope="col">2P Made</th>
+            <th scope="col">2P Miss</th>
+
+            <th scope="col">3P Made</th>
+            <th scope="col">3P Miss</th>
+            
+            <th scope="col">FT Made</th>
+            <th scope="col">FT Miss</th>
+            
+            <th scope="col">OREB</th>
+            <th scope="col">DREB</th>
+            
+            <th scope="col">AST</th>
+            <th scope="col">STL</th>
+            <th scope="col">BLK</th>
+            <th scope="col">TO</th>
+            <th scope="col">PF</th>
+            <th scope="col">PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Khris Middleton <span class="text-muted">F</span> </th>
+            <td>
+                <button type="button" class="btn btn-outline-success">In</button>
+            </td>
+            <td class="on_court">00:00</td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>
+                <div style="text-align: center;">0</div>
+                
+                <div style="text-align: center;">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="plus">+</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="minus">-</button>
+                </div>
+            </td>
+            <td>0</td>
+          </tr>
+
+          <tr>
+            <th scope="row">Giannis Antetokounmpo <span class="text-muted">F</span> </th>
+            <td>
+                <button type="button" class="btn btn-outline-success">In</button>
+            </td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">Brook Lopez <span class="text-muted">C</span> </th>
+            <td>
+                <button type="button" class="btn btn-outline-success">In</button>
+            </td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">Grayson Allen <sapn class="text-muted">G</span> </th>
+            <td>
+                    <button type="button" class="btn btn-outline-danger">Out</button>
+            </td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">Jrue Holiday <span class="text-muted">G</span> </th>
+            <td>
+                <button type="button" class="btn btn-outline-danger">Out</button>
+            </td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="{% static 'recorder/record.js' %}"></script>
+-->
+{% endblock %}

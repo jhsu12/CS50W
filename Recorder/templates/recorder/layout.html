@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Basketball Recorder{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        {% block css %}
+        {% endblock %}
+        <link href="{% static 'recorder/styles.css' %}" rel="stylesheet">
+        
+        {% block script %}
+        {% endblock %}
+    </head>
+    <body>
+
+        <nav id="navbar_custom" class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="{% url 'index' %}">
+              <img src="{% static 'recorder/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+              Recorder
+            </a>
+        
+            <div>
+                <ul class="navbar-nav mr-auto">
+                
+                    {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create_players' %}"><strong>Create Players</strong></a>
+                        </li>
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'create_recording' %}"><strong>Record</strong></a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Following</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log Out</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Register</a>
+                    </li>
+                
+              </ul>
+            </div>
+          </nav>
+        
+        <div class="body">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

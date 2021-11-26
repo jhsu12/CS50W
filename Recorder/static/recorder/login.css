@@ -1,0 +1,40 @@
+.col 
+{
+    height: 100vh;
+}
+.col-3
+{
+    height: 100vh;
+
+}
+.form
+{
+    margin-top: 50%;
+    margin-left: 10%;
+}
+.navbar-brand
+{
+    color: black;
+    font-size: 30px;
+}
+a:hover {
+    color: black;
+}
+button
+{
+    color: cornsilk;
+    background-color: #ffbb00;
+    border: none;
+    padding: 15px 150px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 4px;
+    
+     
+    
+}
+.form-group
+{
+    width: 250px;
+   
+}

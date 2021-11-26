@@ -1,0 +1,22 @@
+button
+{
+    color: cornsilk;
+    background-color: #ffbb00;
+    border: none;
+    padding: 15px 75px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    
+     
+    
+}
+#message
+{
+    display: none;
+}
+#successfully_created
+{
+    display: none;
+    
+}

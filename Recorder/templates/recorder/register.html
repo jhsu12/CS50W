@@ -1,0 +1,76 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Basketball Recorder{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'recorder/login.css' %}" rel="stylesheet">
+       
+    </head>
+    <body>
+        <div class="body">
+          
+        {% if message %}
+            <div>{{ message }}</div>
+        {% endif %}
+
+            <div class="container-fluid" >
+                <div class="row">
+                    <div class="col-3">
+                        <div>
+                            <a class="navbar-brand" href="#">
+                                <img src="{% static 'recorder/icon.png' %}" width="50" height="50" class="d-inline-block align-top" alt="">
+                                Recorder
+                            </a>
+                        </div>
+                        <div class="form">
+                            <h2>Register</h2>
+                            <br>
+                            <form action="{% url 'register' %}" method="post">
+                                {% csrf_token %}
+                                
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput" class="text-muted">Team Name</label>
+                                    <input class="form-control" autofocus type="text" name="username" placeholder="Milwaukee Bucks">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput" class="text-muted">Email Address</label>
+                                    <input class="form-control" type="email" name="email" placeholder="bucks@mail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput" class="text-muted">Password</label>
+                                    <input class="form-control" type="password" name="password" placeholder="enter your password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput" class="text-muted">Confirmation Password</label>
+                                    <input class="form-control" type="password" name="confirmation" placeholder="enter your password">
+                                </div>
+                                
+                                <br>
+                                <button type="submit">Submit</button>
+                                
+                            </form>
+                            <br><br>
+                            Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+                        </div>    
+                    </div>
+                    <div class="col-3"></div>
+
+                    <div class="col" >
+                        <img src="{% static 'recorder/login_image.jpg' %}" width="101%" height="100%">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+    </body>
+           
+                       
+</html>
+
+
+
+
+

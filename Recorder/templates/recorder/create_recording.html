@@ -1,0 +1,80 @@
+{% extends "Recorder/layout.html" %}
+{% load static %}
+    {% block css %}
+        <link href="{% static 'recorder/create_players.css' %}" rel="stylesheet">
+    {% endblock %}
+{% block body %}
+    
+
+    <div class="py-5 px-10">
+        <div class="col-md-10 mx-auto " id="message">
+            
+        </div>
+        
+        
+        <div class="col-md-10 mx-auto">
+            <form>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Opposing Team</label>
+                      <input type="text" class="form-control" id="inputOpposingTeam" placeholder="Phoenxi Suns">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label>Minutes of each Quarter</label>
+                      <select class="form-control" id="inputMinute">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        
+                      </select>
+                    </div>
+                </div>
+                
+         
+
+                <fieldset class="form-group">
+                    <div class="row">
+                        <legend class="col-form-label col-sm-1 pt-0 ">Active Roster</legend>
+                        <div class="col-sm-10">
+                            {% for player in players %}
+                                <div class="form-check">
+                                    <input class="form-check-input"  type="checkbox" id="{{player.id}}" value="{{player.id}}">
+                                    <label class="form-check-label">
+                                        #{{player.number}} {{player.name}}
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group row">
+                    <div class="col-sm-10 pt-5">
+                        <button type="submit" id="create_button" >Start</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <br><br>
+
+        
+        
+    </div>
+
+{% endblock %}
+
+{% block script %}
+   
+{% endblock %}

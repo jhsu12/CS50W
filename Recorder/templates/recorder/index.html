@@ -1,0 +1,141 @@
+{% extends "Recorder/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="row py-5 px-10">
+        <div class="col-md-10 mx-auto">
+            <!-- Player Profile widget -->
+            <div class="media align-items-end profile-head">
+                <div class="profile mr-4" ><img src="{% static 'recorder/blank-profile.png' %}"  style="border-radius: 50%;" alt="..." width="200"  class="mb-2"></div>
+                
+                <div class="media-body mb-5">
+                    
+                    <h4 class="mt-0 mb-0" style="font-size: 30px;">Milwaukee Bucks</h4>
+                </div>
+                <div class="ml-2" style="padding-top: -20px;">
+                    <button type="button" class="btn btn-outline-primary">Edit Profile</button>
+                </div>
+            </div>
+
+            <!-- Player Basic Static -->
+            <div class="bg-light d-flex  justify-content-center text-center " style="margin-top: 140px;">
+                <ul class="list-inline mb-5 " >
+                    <li class="list-inline-item mr-6 ">
+                        <large class="text-muted" > <i class="fas fa-image mr-1"></i>GP</large>
+                        <h5 class="font-weight-bold mb-0 d-block" style="font-size: 40px;">215</h5>
+                    </li>
+                    <li class="list-inline-item mr-6 pr-3 pl-3">
+                        <large style="font-size: 50px;color: dimgrey;" > | </large>
+                    </li>
+                    <li class="list-inline-item">
+                        <large class="text-muted"> <i class="fas fa-user mr-1"></i>PPG</large>
+                        <h5 class="font-weight-bold mb-0 d-block" style="font-size: 40px;">7.4</h5>
+                    </li>
+                    <li class="list-inline-item mr-6 pr-3 pl-3">
+                        <large style="font-size: 50px;color: dimgrey;" > | </large>
+                    </li>
+                    <li class="list-inline-item">
+                        <large class="text-muted"> <i class="fas fa-user mr-1"></i>RPG</large>
+                        <h5 class="font-weight-bold mb-0 d-block" style="font-size: 40px;">3.4</h5>
+                    </li>
+                    <li class="list-inline-item mr-6 pr-3 pl-3">
+                        <large style="font-size: 50px;color: dimgrey;" > | </large>
+                    </li>
+                    <li class="list-inline-item">
+                        <large class="text-muted"> <i class="fas fa-user mr-1"></i>APG</large>
+                        <h5 class="font-weight-bold mb-0 d-block" style="font-size: 40px;">3.4</h5>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sub Navbars -->
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Profile</a>
+                  <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Game</a>
+                  <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Stats</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">Game</div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Stats</div>
+               
+            </div>
+
+            <!-- Player's Box score -->
+            <div class="px-4 py-3">
+                <h2 class="pb-2">Last 5 Games</h2>
+                <table class="table table-md table-hover">
+                    <thead>
+                      <tr class="table-active">
+                        <th scope="col">DATE</th>
+                        <th scope="col">MIN</th>
+                        <th scope="col">PTS</th>
+                        <th scope="col">FGM</th>
+                        <th scope="col">FGA</th>
+                        <th scope="col">FG%</th>
+                        <th scope="col">3PM</th>
+                        <th scope="col">3PA</th>
+                        <th scope="col">3P%</th>
+                        <th scope="col">FTM</th>
+                        <th scope="col">FTA</th>
+                        <th scope="col">FT%</th>
+                        <th scope="col">OREB</th>
+                        <th scope="col">DREB</th>
+                        <th scope="col">REB</th>
+                        <th scope="col">AST</th>
+                        <th scope="col">STL</th>
+                        <th scope="col">BLK</th>
+                        <th scope="col">TO</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+               
+            <div class="px-4 py-3">
+                <h5 class="mb-0">About</h5>
+                <div class="p-4 rounded shadow-sm bg-light">
+                    <p class="font-italic mb-0">Web Developer</p>
+                    <p class="font-italic mb-0">Lives in New York</p>
+                    <p class="font-italic mb-0">Photographer</p>
+                </div>
+            </div>
+            <div class="py-4 px-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="mb-0">Recent photos</h5><a href="#" class="btn btn-link text-muted">Show all</a>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mb-2 pr-lg-1"><img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 mb-2 pl-lg-1"><img src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pr-lg-1 mb-2"><img src="https://images.unsplash.com/photo-1453791052107-5c843da62d97?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                    <div class="col-lg-6 pl-lg-1"><img src="https://images.unsplash.com/photo-1475724017904-b712052c192a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="img-fluid rounded shadow-sm"></div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+   
+{% endblock %}

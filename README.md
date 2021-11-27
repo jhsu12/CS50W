@@ -6,7 +6,11 @@ CS50W Project1 Wiki
 ## General info
 Design a Wikipedia-like online encyclopedia.
 
+## Technologies
 
+- Python Django
+- HTML
+- CSS
 
 ## Specification
 - **Entry Page**<br/>
@@ -24,11 +28,7 @@ Clicking “Random Page” in the sidebar should take user to a random encyclope
 
 - **Markdown to HTML Conversion**<br/>
 On each entry’s page, any Markdown content in the entry file should be converted to HTML before being displayed to the user. You may use the `python-markdown2` package to perform this conversion, installable via `pip3 install markdown2`.
-## Technologies
 
-- Python Django
-- HTML
-- CSS
 
 
 ## Demo

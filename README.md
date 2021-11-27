@@ -7,7 +7,11 @@ CS50W Project0 Search
 ## General info
 Design a front-end for Google Search, Google Image Search, and Google Advanced Search.
 
+## Technologies
 
+
+- HTML
+- CSS
 
 ## Specification
 - **Pages**<br/>
@@ -28,11 +32,7 @@ Like Google’s own Advanced Search page, the four options should be stacked ver
 Add an “I’m Feeling Lucky” button to the main Google Search page. Consistent with Google’s own behavior, clicking this link should take users directly to the first Google search result for the query, bypassing the normal results page.
 - **Aesthetics**<br/>
 The CSS you write should match Google’s own aesthetics as best as possible.
-## Technologies
 
-
-- HTML
-- CSS
 
 
 ## Demo
